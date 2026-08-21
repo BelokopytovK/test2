@@ -1,15 +1,18 @@
-```
-# Python
-__pycache__/
+*.spec
 *.pyc
-*.pyo
-*.pyd
-
-# Archives
-*.zip
-```node_modules/
-.next/
+__pycache__/
+*.log
+*.tmp
+*.swp
+.env
+.env.local
+.vscode/
+.idea/
 dist/
 build/
-*.log
-node_modules/
+.coverage
+htmlcov/
+coverage/
+.mypy_cache/
+.pytest_cache/node_modules/
+.next/
