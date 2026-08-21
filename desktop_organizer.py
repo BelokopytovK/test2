@@ -102,7 +102,11 @@ class DesktopOrganizer(QWidget):
         
         # Мониторинг файловой системы
         self.fs_watcher = QFileSystemWatcher()
-        self.fs_watcher.directoriesChanged.connect(self.on_directory_changed)
+        # Подключение сигналов с проверкой совместимости версий Qt
+        if hasattr(self.fs_watcher, 'directoryChanged'):
+            self.fs_watcher.directoryChanged.connect(self.on_directory_changed)
+        elif hasattr(self.fs_watcher, 'directoriesChanged'):
+            self.fs_watcher.directoriesChanged.connect(self.on_directory_changed)
         self.update_watcher()
         
         # Таймер для периодического обновления
